@@ -1,9 +1,9 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import logo from './logo.svg';
 import './App.css';
-
+import ButtonAppBar from './components/AppBar';
+import {useState} from 'react'
 function App() {
-  const employees = [
+  let employees = [
     {
       id: 1,
       name: 'John Doe',
@@ -25,37 +25,12 @@ function App() {
       department: 'Marketing'
     }
   ];
-
+  
+  console.log(employees);
+  
   return (
     <div className="App">
-      <motion.table
-        
-        initial={{ opacity: 0, y: -50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-      >
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Department</th>
-          </tr>
-        </thead>
-        <tbody>
-          {employees.map(({ id, name, department }) => (
-            <motion.tr
-              key={id}
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-            >
-              <td>{id}</td>
-              <td>{name}</td>
-              <td>{department}</td>
-            </motion.tr>
-          ))}
-        </tbody>
-      </motion.table>
+   <ButtonAppBar/>
     </div>
   );
 }
